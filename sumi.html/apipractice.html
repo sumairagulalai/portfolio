@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="" alt="">
+    <h4></h4>
+    <p></p>
+</body>
+<script>
+    let image = document.querySelector("img")
+    let title = document.querySelector("h4")
+    let price = document.querySelector("p")
+    fetch("https://api.escuelajs.co/api/v1/products")
+    .then(Response=>Response.json())
+    .then(data=>{
+        console.log(data)
+        console.log(data[0].images[0])
+        let imagee = data[0].images[0]
+        let titlee = data[0].title[0]
+        console.log(titlee)
+        let pricee = data[0].price[0]
+        console.log(pricee)
+        image.src = imagee
+        title.textContent=titlee
+        price.textContent=pricee
+    })
+</script>
+</html>

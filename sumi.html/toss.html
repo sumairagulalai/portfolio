@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button><h1>Toss</h1></button>
+    <h2></h2>
+    <h3></h3>
+    <button class="btn1">light mode</button>
+    <button class="btn2">dark mode</button>
+</body>
+<script>
+   
+let btn = document.querySelector("button")
+let h2 = document.querySelector("h2")
+let h3 = document.querySelector("h3")
+btn.addEventListener("click",()=>{
+    let randomNum = Math.ceil(Math.random()*2)
+    h2.innerHTML=randomNum;
+    if(randomNum==1){
+        h3.innerHTML="head"
+    }
+    else{
+        h3.innerHTML="tail"
+    }
+})
+ let body = document.querySelector("body")
+     let butt1 = document.querySelector(".btn1")
+     let butt2 = document.querySelector(".btn2")
+     butt1.addEventListener("click",()=>{
+        body.style.backgroundColor="white"
+        body.style.color="black"
+     })
+     butt2.addEventListener("click",()=>{
+        body.style.backgroundColor="black"
+        body.style.color="white"
+     })
+</script>
+</html>

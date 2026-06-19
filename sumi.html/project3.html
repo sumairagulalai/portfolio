@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guess Number Game</title>
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    font-family:Arial, sans-serif;
+    background:linear-gradient(to right, #4facfe, #00f2fe);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background-image: url("c:/Users/sumai/Downloads/img2.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    
+}
+
+.container{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    text-align:center;
+    width:350px;
+}
+
+h2{
+    color:#333;
+}
+
+p{
+    color:#555;
+    font-size:18px;
+}
+
+input{
+    width:80%;
+    padding:10px;
+    margin:15px 0;
+    border:2px solid #4facfe;
+    border-radius:8px;
+    font-size:16px;
+}
+
+button{
+    background:#4facfe;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#007bff;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>🎯 Guess the Number</h2>
+    <p id="message">Enter a number between 1 to 100</p>
+
+    <input type="number" id="guess" placeholder="Enter your guess">
+    <br>
+    <button onclick="checkGuess()">Submit</button>
+</div>
+
+<script>
+let target = Math.floor(Math.random() * 100) + 1;
+
+function checkGuess(){
+    let userChoice = Number(document.getElementById("guess").value);
+    let message = document.getElementById("message");
+
+    if(userChoice === target){
+        message.innerText = "🎉 Correct Guess!";
+        message.style.color = "green";
+    }
+    else if(userChoice < target){
+        message.innerText = "📉 Too Small! Try Bigger";
+        message.style.color = "orange";
+    }
+    else{
+        message.innerText = "📈 Too Big! Try Smaller";
+        message.style.color = "red";
+    }
+}
+</script>
+
+</body>
+</html>

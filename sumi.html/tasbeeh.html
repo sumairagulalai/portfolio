@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Counter App</title>
+
+<style>
+    body{
+        font-family: Arial, sans-serif;
+        background: #eef2f3;
+        text-align: center;
+        padding-top: 60px;
+        background-color: black;
+    }
+
+    .box{
+        background: white;
+        width: 320px;
+        margin: auto;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    h3{
+        font-size: 40px;
+        margin: 10px 0;
+        color: #333;
+    }
+
+    button{
+        padding: 12px 25px;
+        font-size: 16px;
+        border: none;
+        background: #007bff;
+        color: white;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover{
+        background: #0056b3;
+    }
+
+    img{
+        width: 200px;
+        margin-top: 15px;
+        border-radius: 10px;
+    }
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+    <h3>0</h3>
+
+    <button>Click</button>
+
+    <br><br>
+
+    <img src="" alt="image">
+
+</div>
+
+<script>
+let count = 0;
+
+let headone = document.querySelector("h3");
+let btn = document.querySelector("button");
+let image = document.querySelector("img");
+
+btn.addEventListener("click", () => {
+    count++;
+    headone.textContent = count;
+
+    let audio;
+
+    if (count >= 0 && count <= 34) {
+        image.src = "c:/Users/sumai/Downloads/SUBHANALLAH.PNG";
+        audio = new Audio("c:/Users/sumai/Downloads/ibra7imbey-subhanallahi-wa-bihamdihi-with-reverb-301504.mp3");
+    } 
+    else if (count > 34 && count <= 66) {
+        image.src = "c:/Users/sumai/Downloads/alhamdulillah.png";
+        audio = new Audio("c:/Users/sumai/Downloads/ttsMP3.com_VoiceText_2026-5-5_20-49-45.mp3");
+    } 
+    else {
+        image.src = "c:/Users/sumai/Downloads/allahoakbar.png";
+        audio = new Audio("c:/Users/sumai/Downloads/ttsMP3.com_VoiceText_2026-5-5_20-50-47.mp3");
+    }
+
+    audio.play();
+});
+</script>
+
+</body>
+</html>

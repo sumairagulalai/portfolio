@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+<body>
+    
+</body>
+<script>
+// challenge 1 
+// Mark and John are trying to compare their BMI (Body Mass Index), which is 
+// calculated using the formula: 
+// BMI = mass / height ** 2 = mass / (height * height) (mass in kg 
+// and height in meter). 
+// Your tasks: 
+// 1. Store Mark's and John's mass and height in variables 
+// 2. Calculate both their BMIs using the formula (you can even implement both 
+// versions) 
+// 3. Create a Boolean variable 'markHigherBMI' containing information about 
+// whether Mark has a higher BMI than John. 
+// Test data: 
+// § Data 1: Marks weights 78 kg and is 1.69 m tall. John weights 92 kg and is 1.95 
+// m tall. 
+// § Data 2: Marks weights 95 kg and is 1.88 m tall. John weights 85 kg and is 1.76 
+// m tall.
+
+    // Data 1
+let markMass = 78;
+let markHeight = 1.69;
+
+let johnMass = 92;
+let johnHeight = 1.95;
+
+// BMI formula
+let markBMI = markMass / (markHeight * markHeight);
+let johnBMI = johnMass / (johnHeight ** 2);
+
+// Compare
+let markHigherBMI = markBMI > johnBMI;
+
+console.log("Mark BMI:", markBMI);
+console.log("John BMI:", johnBMI);
+console.log("Does Mark have higher BMI?", markHigherBMI);
+// data 2 
+let markMass2 = 95;
+let markHeight2 = 1.88;
+
+let johnMass2 = 85;
+let johnHeight2 = 1.76;
+// BMI formula
+let markBMI2 = markMass2 / (markHeight2 * markHeight2);
+let johnBMI2 = johnMass2 / (johnHeight2 ** 2);
+// Compare
+let markHigherBMI2 = markBMI2 > johnBMI2;
+
+console.log("Mark BMI:", markBMI2);
+console.log("John BMI:", johnBMI2);
+console.log("Does Mark have higher BMI?", markHigherBMI2);
+
+</script>
+</html>
+
+
+

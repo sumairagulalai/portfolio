@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Weather Temp App</title>
+
+<style>
+body {
+    font-family: Arial;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+}
+
+.box {
+    background: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    width: 250px;
+}
+
+input {
+    padding: 8px;
+    width: 90%;
+}
+
+button {
+    margin-top: 10px;
+    padding: 8px 15px;
+    border: none;
+    background: #3498db;
+    color: white;
+    cursor: pointer;
+}
+
+.result {
+    margin-top: 15px;
+    font-size: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <h3>🌤️ Weather</h3>
+
+    <input type="text" id="city" placeholder="Enter city">
+
+    <br>
+
+    <button onclick="getTemp()">Get Temp</button>
+
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+function getTemp() {
+
+    let city = document.getElementById("city").value;
+
+    if (city === "") {
+        alert("Please enter city name");
+        return;
+    }
+
+    // Step 1: city → location
+    fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${city}`)
+    .then(res => res.json())
+    .then(data => {
+
+        // ✅ FIX: check if city exists
+        if (!data.results || data.results.length === 0) {
+            document.getElementById("result").innerHTML = "City not found ❌";
+            return;
+        }
+
+        let lat = data.results[0].latitude;
+        let lon = data.results[0].longitude;
+
+        // Step 2: get weather
+        return fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`);
+
+    })
+    .then(res => res.json())
+    .then(data => {
+
+        let temp = data.current_weather.temperature;
+
+        document.getElementById("result").innerHTML =
+            "🌡️ Temperature: " + temp + "°C";
+
+    })
+    .catch(error => {
+        document.getElementById("result").innerHTML = "Error fetching data ❌";
+    });
+
+}
+</script>
+
+</body>
+</html>

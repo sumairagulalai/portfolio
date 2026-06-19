@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+body{
+    background-color: blueviolet;
+}
+.para{
+    width: 300px;
+    height: 300px;
+    background-color: aqua;
+    border-radius: 50%;
+    border: 3px red solid;
+    text-align: center;
+    margin-top: 50px;
+    margin-left: 500px;
+    padding-top: 50px;
+    box-shadow: 5px 5px 5px 5px red;
+}
+.screen{
+    font-size: 100px;
+    
+}
+button{
+    margin-top: 50px;
+}
+.increaseCount{
+    border: red solid 3px;
+    width: 100px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 20px;
+}
+.lighton{
+    font-size:20px ;
+    border: red solid 3px;
+    width: 70px;
+    height: 40px;
+    border-radius: 50%;
+
+}
+.reset{
+     font-size:20px ;
+    border: red solid 3px;
+    width: 70px;
+    height: 40px;
+    border-radius: 50%;
+}
+.heading{
+    margin-left: 550px;
+    color: black;
+    font-size: 70px;
+}
+</style>
+<body>
+    <h1 class="heading">Counter</h1>
+    <div class="para">
+    <div class="screen">0</div>
+    <button class="lighton">💡</button>
+    <button class="increaseCount">increase</button>
+    <button class="reset">reset</button>
+    </div>
+</body>
+<script>
+     
+   let count = 0;
+let body = document.querySelector("body")
+let increase = document.querySelector(".increaseCount");
+let screen = document.querySelector(".screen");
+let reset = document.querySelector(".reset");
+let light = document.querySelector(".lighton");
+let para = document.querySelector(".para");
+
+increase.addEventListener("click", () => {
+    count++;
+    screen.textContent = count;
+});
+
+reset.addEventListener("click",()=>{
+    screen.textContent=0
+});
+
+light.addEventListener("click", () => {
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
+
+    para.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+});
+body.addEventListener("mousemove",()=>{
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
+
+    body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+})
+
+
+
+
+</script>
+</html>

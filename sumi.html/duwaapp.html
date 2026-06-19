@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Duwa App</title>
+
+<style>
+
+body{
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(135deg, #1e3c72, #2a5298, #6dd5ed);
+    background-size: 300% 300%;
+    animation: bgMove 10s infinite alternate;
+}
+
+@keyframes bgMove{
+    0%{background-position:left;}
+    100%{background-position:right;}
+}
+
+
+.container{
+    width: 380px;
+    padding: 30px;
+    text-align: center;
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    color: white;
+}
+h2{
+    font-size: 30px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #fff, #00ffd5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+#dua{
+    font-size: 20px;
+    margin: 25px 0;
+    line-height: 1.6;
+    transition: 0.3s;
+}
+
+button{
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+
+    background: #00c9a7;
+    color: white;
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+button:hover{
+    background: #00b894;
+    transform: scale(1.05);
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+    <h2>🌙✨ Duwa App ✨🌙</h2>
+    <p id="dua">Click the button to see a beautiful Duwa ✨</p>
+    <button onclick="newDua()">New Duwa</button>
+
+</div>
+
+<script>
+let duas = [
+    "اللّهُـمَّ اهْدِنِي وَسَدِّدْنِي",
+    "رَبِّ زِدْنِي عِلْمًا",
+    "اللّهُـمَّ اغْفِرْ لِي وَارْحَمْنِي",
+    "اللّهُـمَّ ارْزُقْنِي رِزْقًا حَلالًا طَيِّبًا",
+    "حَسْبِيَ اللّهُ لا إِلَهَ إِلا هُوَ",
+    "اللّهُـمَّ يَسِّرْ أُمُورِي وَبَارِكْ لِي"
+];
+
+function newDua(){
+    let randomIndex = Math.floor(Math.random() * duas.length);
+    let duaElement = document.getElementById("dua");
+
+    // smooth effect
+    duaElement.style.opacity = 0;
+
+    setTimeout(() => {
+        duaElement.textContent = duas[randomIndex];
+        duaElement.style.opacity = 1;
+    }, 200);
+}
+</script>
+
+</body>
+</html>

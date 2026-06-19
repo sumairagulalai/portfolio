@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eid Mubarak Surprise</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:black;
+    overflow:hidden;
+    font-family:Arial;
+}
+
+/* ---------------- INTRO ---------------- */
+
+.intro{
+    position:fixed;
+    width:100%;
+    height:100vh;
+    background:linear-gradient(135deg,#ff0066,#ff4d88,#ff99bb);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    z-index:100;
+}
+
+.intro h1{
+    color:white;
+    font-size:40px;
+    margin-bottom:20px;
+    text-shadow:0 0 20px white;
+    animation:blink 1s infinite alternate;
+}
+
+.btn{
+    padding:15px 35px;
+    border:none;
+    border-radius:30px;
+    font-size:20px;
+    font-weight:bold;
+    cursor:pointer;
+    background:white;
+    color:#ff0066;
+}
+
+/* ---------------- MAIN ---------------- */
+
+.main{
+    display:none;
+    position:relative;
+    width:100%;
+    height:100vh;
+}
+
+/* BACKGROUND LAYERS */
+
+.layer{
+    position:absolute;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+/* LOVE TEXT */
+
+.love{
+    position:absolute;
+    color:#ff004c;
+    font-size:18px;
+    font-weight:bold;
+    animation:moveLove linear infinite;
+    text-shadow:0 0 10px #ff0055;
+}
+
+/* LOVE IMAGE (NEW) */
+
+.love-img{
+    position:absolute;
+    width:30px;
+    height:30px;
+    object-fit:contain;
+    animation:moveLove linear infinite;
+    opacity:0.9;
+}
+
+/* ROSE */
+
+.rose{
+    position:absolute;
+    font-size:25px;
+    animation:moveLove linear infinite;
+}
+
+/* SPARKLE */
+
+.sparkle{
+    position:absolute;
+    color:white;
+    font-size:18px;
+    animation:spark 3s linear infinite;
+}
+
+/* ❤️ HEART */
+
+.heart{
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:180px;
+    height:180px;
+    background:#ff0055;
+    transform:translate(-50%,-50%) rotate(-45deg);
+    animation:beat 1s infinite;
+    box-shadow:0 0 40px #ff0055;
+}
+
+.heart::before,
+.heart::after{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    background:#ff0055;
+    border-radius:50%;
+}
+
+.heart::before{top:-90px;left:0;}
+.heart::after{left:90px;top:0;}
+
+/* TEXT */
+
+.text{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    color:white;
+    font-size:26px;
+    font-weight:bold;
+    text-align:center;
+    z-index:10;
+    text-shadow:0 0 15px white;
+    line-height:1.4;
+}
+
+/* ANIMATIONS */
+
+@keyframes moveLove{
+    0%{transform:translateY(100vh);opacity:0;}
+    20%{opacity:1;}
+    100%{transform:translateY(-120vh);opacity:0;}
+}
+
+@keyframes beat{
+    0%,100%{transform:translate(-50%,-50%) rotate(-45deg) scale(1);}
+    50%{transform:translate(-50%,-50%) rotate(-45deg) scale(1.1);}
+}
+
+@keyframes spark{
+    0%{opacity:0;transform:scale(0);}
+    50%{opacity:1;}
+    100%{opacity:0;transform:scale(1.5);}
+}
+
+@keyframes blink{
+    from{opacity:0.6;}
+    to{opacity:1;}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- INTRO -->
+<div class="intro" id="intro">
+    <h1>🥺👉👈 Click Fast!</h1>
+    <button class="btn" onclick="start()">Open Surprise ✨</button>
+</div>
+
+<!-- MAIN -->
+<div class="main" id="main">
+
+    <div class="layer" id="loveLayer"></div>
+    <div class="layer" id="roseLayer"></div>
+    <div class="layer" id="sparkLayer"></div>
+
+    <div class="heart"></div>
+
+    <div class="text">
+        Eid Mubarak ❤️<br>
+        To My Shehzada
+    </div>
+
+</div>
+
+<script>
+
+function start(){
+    document.getElementById("intro").style.display="none";
+    document.getElementById("main").style.display="block";
+}
+
+
+
+const loveLayer=document.getElementById("loveLayer");
+
+function loveRain(){
+
+    
+    const el=document.createElement("div");
+    el.className="love";
+    el.innerHTML="LOVE ❤";
+    el.style.left=Math.random()*100+"vw";
+    el.style.animationDuration=(Math.random()*5+4)+"s";
+    loveLayer.appendChild(el);
+
+    setTimeout(()=>el.remove(),9000);
+
+    
+    const img=document.createElement("img");
+    img.src="c:/Users/sumai/Downloads/f.png.jpeg";
+    img.width="60px";
+    img.className="love-img";
+
+    img.style.left=Math.random()*100+"vw";
+    img.style.animationDuration=(Math.random()*5+4)+"s";
+
+    loveLayer.appendChild(img);
+
+    setTimeout(()=>img.remove(),9000);
+}
+
+setInterval(loveRain,150);
+
+
+
+const roseLayer=document.getElementById("roseLayer");
+
+function roseRain(){
+
+    const rose=document.createElement("div");
+    rose.className="rose";
+    rose.innerHTML="🌹";
+    rose.style.left=Math.random()*100+"vw";
+    rose.style.animationDuration=(Math.random()*5+4)+"s";
+    roseLayer.appendChild(rose);
+    setTimeout(()=>rose.remove(),9000);
+}
+
+setInterval(roseRain,400);
+
+/* SPARKLE */
+
+const sparkLayer=document.getElementById("sparkLayer");
+
+function spark(){
+
+    const s=document.createElement("div");
+    s.className="sparkle";
+    s.innerHTML="✨";
+    s.style.left=Math.random()*100+"vw";
+    s.style.top=Math.random()*100+"vh";
+    sparkLayer.appendChild(s);
+    setTimeout(()=>s.remove(),3000);
+}
+
+setInterval(spark,200);
+
+</script>
+
+</body>
+</html>

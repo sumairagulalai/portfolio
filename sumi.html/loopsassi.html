@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // for loop 
+    // print numbers from 0 to 10 
+    for(let i = 0; i <= 10; i++){
+        console.log(i)
+    }
+    // print all even numbers from 0 to 20 
+    for(let a=0; a<=20; a++){
+        if(a%2==0){
+            console.log(a)
+        }
+    }
+    // multiplication table of 5 
+    for( let a = 0 ; a<=10 ; a++){
+        console.log("5" + "x" + a + "=" + 5*a)
+    }
+
+    // calculate sum of numbers from 1 to 50 
+    let start = 0;
+    for(let ini = 1; ini<=50 ; ini++){
+        start+= ini;
+    }
+    console.log(start)
+    // print numbers in reverse order 
+    for(x=10;x>=1;x--){
+        console.log(x)
+    }
+// while loop 
+// print numbers from 1 to 10 using while loop
+let y=0;
+while(y<=10){
+    console.log(y)
+    y++;
+}
+// print all odd numbers from 1 to 20 
+let z = 0;
+while(z<=20){
+    if(z%2!=0){
+        console.log(z)
+    }
+    z++;
+}
+// calculate sum of numbers from 1 to 100 
+let sum = 0;
+let initial =1;
+while (initial<=100){
+    sum+=initial;
+    initial++;
+}
+console.log(sum)
+// print numbers in reverse order 10 to 1 
+let startt = 10;
+while(startt>=1){
+    console.log(startt);
+    startt--;
+}
+
+// creat a password that keep asking from the user until they enter correct password (admin123) 
+let password = prompt("enter password")
+if(password=="admin123"){
+    alert("correct password")
+}
+else;
+alert(prompt("enter again. your password is incorrect"))
+
+
+</script>
+</html

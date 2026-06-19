@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Event Dashboard</title>
+</head>
+
+<body>
+
+<h2>Interactive Dashboard</h2>
+
+<!-- Mouse Event -->
+<button id="btn">Hover Me</button>
+
+<!-- Keyboard Event -->
+<br><br>
+<input id="textInput" placeholder="Type something...">
+<p id="output"></p>
+
+<!-- Form Event -->
+<br>
+<form id="myForm">
+<input type="text" id="name" placeholder="Enter name">
+<button type="submit">Submit</button>
+</form>
+
+<p id="greet"></p>
+
+<script>
+
+// 🖱 Mouse Event
+let btn = document.getElementById("btn");
+
+btn.addEventListener("mouseover", () => {
+    document.body.style.backgroundColor = "lightblue";
+});
+
+btn.addEventListener("mouseout", () => {
+    document.body.style.backgroundColor = "white";
+});
+
+
+// ⌨️ Keyboard Event
+let input = document.getElementById("textInput");
+let output = document.getElementById("output");
+
+input.addEventListener("keyup", () => {
+    output.innerText = input.value;
+});
+
+
+// 📝 Form Event
+let form = document.getElementById("myForm");
+let greet = document.getElementById("greet");
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    let name = document.getElementById("name").value;
+    greet.innerText = "Hello " + name + " 👋";
+});
+
+
+// 🌐 Browser Events
+
+window.addEventListener("load", () => {
+    console.log("Page Loaded");
+});
+
+window.addEventListener("resize", () => {
+    console.log("Window resized");
+});
+
+</script>
+
+</body>
+</html>

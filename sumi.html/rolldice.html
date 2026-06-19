@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dice Game</title>
+
+<style>
+body{
+    text-align:center;
+    font-family:Arial;
+    margin-top:100px;
+    background:#f2f2f2;
+    background-color: black;
+}
+
+#dice img{
+    width:120px;
+    height:120px;
+}
+
+button{
+    padding:10px 20px;
+    font-size:18px;
+    background:#007bff;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0056b3;
+}
+h2{
+    color: white;
+}
+h1{
+    color: white;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>🎲 Roll Dice Game</h1>
+
+<div id="dice">
+    <img src="c:\Users\sumai\Downloads\onedice.png" id="diceImg">
+</div>
+
+<h2 id="result">Click Roll</h2>
+
+<button onclick="rollDice()">Roll Dice</button>
+
+<script>
+
+function rollDice(){
+
+    let diceImg = document.getElementById("diceImg");
+    let result = document.getElementById("result");
+
+    let faces = [
+        "c:/Users/sumai/Downloads/onedice.png",
+        "c:/Users/sumai/Downloads/twodice.png",
+        "c:/Users/sumai/Downloads/threedice.png",
+        "c:/Users/sumai/Downloads/fourr.png",
+        "c:/Users/sumai/Downloads/fivedice.png",
+        "c:/Users/sumai/Downloads/sixdice.png"
+    ];
+
+    let randomIndex = Math.floor(Math.random() * 6);
+
+    diceImg.src = faces[randomIndex];
+
+    result.textContent = "You got: " + (randomIndex + 1);
+
+}
+
+</script>
+
+</body>
+</html>

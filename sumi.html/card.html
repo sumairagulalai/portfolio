@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Card</title>
+
+<style>
+body{
+    font-family: Arial;
+    background:#f2f2f2;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    gap:40px;
+    background-image: url("c:/Users/sumai/Downloads/background.png");
+    background-size: cover;
+}
+
+/* FORM */
+.form{
+    width: 320px;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.form h2{
+    text-align: center;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+.form input{
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.form input:focus{
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0,123,255,0.3);
+    background-color: aqua;
+}
+
+/* BUTTON */
+.form button{
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.form button:hover{
+    background: #0056b3;
+}
+
+/* CARD */
+.card{
+    width:300px;
+    height: 400px;
+    background:white;
+    border-radius:15px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+    text-align:center;
+    padding:20px;
+}
+
+.card img{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid #007bff;
+}
+
+.info{
+    text-align:left;
+    margin-top:15px;
+}
+
+.info p{
+    margin:8px 0;
+    font-size:15px;
+}
+
+.label{
+    font-weight:bold;
+    color:#007bff;
+}
+</style>
+</head>
+
+<body>
+
+<!-- FORM -->
+<form class="form">
+    <h2>Student Form</h2>
+
+    Name:
+    <input type="text" id="name" placeholder="Enter your name">
+
+    Roll No:
+    <input type="number" id="roll" placeholder="Enter roll number">
+
+    Department:
+    <input type="text" id="dept" placeholder="Enter department">
+
+    Contact:
+    <input type="number" id="contact" placeholder="Enter contact">
+
+    <button type="submit">Submit</button>
+</form>
+
+<!-- CARD -->
+<div class="card">
+    <h1>Student card</h1>
+
+    <img src="c:\Users\sumai\Downloads\student.png" alt="Student Image">
+
+    <h2 id="cardName">Student Name</h2>
+
+    <div class="info">
+        <p><span class="label">Roll No:</span> <span id="cardRoll">--</span></p>
+        <p><span class="label">Department:</span> <span id="cardDept">--</span></p>
+        <p><span class="label">Contact:</span> <span id="cardContact">--</span></p>
+    </div>
+
+</div>
+<script>
+ document.querySelector(".form").addEventListener("submit", function(e){
+     e.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let roll = document.getElementById("roll").value;
+    let dept = document.getElementById("dept").value;
+    let contact = document.getElementById("contact").value;
+
+    document.getElementById("cardName").textContent = name;
+    document.getElementById("cardRoll").textContent = roll;
+    document.getElementById("cardDept").textContent = dept;
+    document.getElementById("cardContact").textContent = contact;
+});
+</script>
+
+</body>
+</html>

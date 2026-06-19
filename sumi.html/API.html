@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>API Image</title>
+</head>
+
+<body>
+
+  <h2>Product Image from API</h2>
+
+  <img id="productImage" width="300">
+  <br><br>
+
+  <button onclick="getImage()">Load Image</button>
+
+  <script>
+    function getImage() {
+      fetch("https://api.escuelajs.co/api/v1/products")
+        .then(response => response.json())
+        .then(data => {
+          let imgUrl = data[0].images[0];
+          document.getElementById("productImage").src = imgUrl;
+        })
+        .catch(error => console.log("Error:", error));
+    }
+  </script>
+
+</body>
+</html>
